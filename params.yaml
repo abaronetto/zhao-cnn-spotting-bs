@@ -1,0 +1,52 @@
+dataset: gds
+path: ../../../../../../../Windows/Temp/
+train_audio_conf:
+  mean: -12.579693
+  std: 5.8847594
+  mode: train
+  dataset: gds
+  num_mel_bins: 26
+  target_length: 10
+  skip_norm: true
+  freqm: 0
+  timem: 0
+  mixup: 0
+  noise: false
+  shift: false
+  pitch shift: false
+  background noise: false
+  path noises: bs/data/background_noise
+val_audio_conf:
+  dataset: gds
+  mean: -12.579693
+  std: 5.8847594
+  mode: eval
+  num_mel_bins: 26
+  target_length: 10
+  skip_norm: true
+  freqm: 0
+  timem: 0
+  mixup: 0
+  noise: false
+  shift: false
+  pitch shift: false
+  background noise: false
+  path noises: bs/data/background_noise/
+label_csv: bs/data/class_labels_indices.csv
+windowing: 1s1s
+n_class: 2
+model:
+  name: CNN
+freeze_layer: false
+bal: true
+n_epochs: 40
+batch_size: 128
+loss: CE
+warmup: false
+n_print_steps: 10000
+scheduler:
+  lr: 1
+  lrscheduler_decay: 0.95
+wa: false
+wa_start: 16
+wa_end: 30
